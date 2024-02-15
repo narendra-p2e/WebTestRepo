@@ -234,6 +234,7 @@
 
 			if (unityGameInstance) {
 				unityGameInstance.SendMessage('Player', 'ProcessInput');
+				console.log("Input Processing Started");
 			}
 
 			camera.position.set(cameraPositionVector.x * unityToThreeScale, 
