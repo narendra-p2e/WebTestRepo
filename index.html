@@ -95,8 +95,6 @@
       	}
 
 		function onPlayerStateChange(event) {
-			console.log("State Changed " + event.data);
-			console.log("Player State" + YT.PlayerState.PLAYING);
 			if (event.data == YT.PlayerState.PLAYING) {
 				setTitle(event.target.getIframe().id, event.target.getIframe().title);
 			}
