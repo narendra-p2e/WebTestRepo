@@ -255,7 +255,8 @@
 			if (platform.product != "iPhone" && platform.product != "iPad") {
 				youtubePlayers.forEach((player) => {
 					if (player.setVolume) {
-						console.error(player.setVolume(100 - (camera.position.distanceTo(player.getIframe().threeObject.position) / 10)));
+						player.setVolume(100 - (camera.position.distanceTo(player.getIframe().threeObject.position) / 10));
+						console.error(100 - (camera.position.distanceTo(player.getIframe().threeObject.position) / 10));
 					}				
 				});
 			}
