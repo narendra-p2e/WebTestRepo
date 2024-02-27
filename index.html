@@ -256,9 +256,10 @@
 				youtubePlayers.forEach((player) => {
 					if (player.setVolume) {
 						player.setVolume(100 - (camera.position.distanceTo(player.getIframe().threeObject.position) / 10));
-						console.error(100 - (camera.position.distanceTo(player.getIframe().threeObject.position) / 10));
 					}				
 				});
+				console.error(100 - (camera.position.distanceTo(youtubePlayers[0].getIframe().threeObject.position) / 10));
+                console.error("cam" + camera.position.distanceTo(youtubePlayers[0].getIframe().threeObject.position));
 			}
 		}
 	</script>
