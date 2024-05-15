@@ -196,9 +196,9 @@
 			}
 			
 			iframe.src += "&rel=0&controls=0&enablejsapi=1&loop=" + loop;
+			iframe.src +="&autoplay="+ autoplay;
 			iframe.setAttribute("allow", "autoplay"); // necessary for videos to play unmuted in chrome
 			iframe.autoplay = autoplay;
-			console.error(autoplay);
 			iframe.shuffle = shuffle;
 
 			youtubeIframes.push(iframe);
@@ -207,7 +207,6 @@
 			object.position.set(x * unityToThreeScale, y * unityToThreeScale, -z * unityToThreeScale);
 			object.rotation.y = ry;
 			iframe.threeObject = object;
-			console.error(iframe);
 			unityGameInstance.SendMessage('YoutubeManager', 'IframeCreated');
 			return object;
 		}
