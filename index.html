@@ -3,7 +3,7 @@
 	<head>
     	<meta charset="utf-8">
     	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    	<title>Unity WebGL Player | unity_youtube_player</title>
+    	<title>Unity WebGL Player | webgl test</title>
     	<link rel="shortcut icon" href="TemplateData/favicon.ico">
     	<link rel="stylesheet" href="TemplateData/style.css">
 		<style>
@@ -54,9 +54,9 @@
 				}
 			}
 			else { 
-				renderer.setSize(1920, 1080);
-				canvas.style.width = "1920px";
-		        canvas.style.height = "1080px";
+				renderer.setSize(960, 600);
+				canvas.style.width = "960px";
+		        canvas.style.height = "600px";
 			}
 		})
 
@@ -109,7 +109,8 @@
 		}
 
 		function setTitle(iframeId, title) {
-			unityGameInstance.SendMessage("YoutubeManager", "SetTitle", JSON.stringify([iframeId, title]));
+			console.error("Title " + title);
+			//unityGameInstance.SendMessage("YoutubeManager", "SetTitle", JSON.stringify([iframeId, title]));
 		}
 
 		function handlePlayerClick(iframeId) {
@@ -128,13 +129,13 @@
 			}
 		}
 
-		function handleNextButtonClick(iframeId) {
-			document.getElementById(iframeId).player.nextVideo();
-		}
+		//function handleNextButtonClick(iframeId) {
+			//document.getElementById(iframeId).player.nextVideo();
+		//}
 
-		function handlePreviousButtonClick(iframeId) {
-			document.getElementById(iframeId).player.previousVideo();
-		}
+		//function handlePreviousButtonClick(iframeId) {
+			//document.getElementById(iframeId).player.previousVideo();
+		//}
     </script>
 
 	<!-- Import maps polyfill -->
@@ -161,7 +162,7 @@
 			scene.add( new YoutubeObject(id, videoIdArrayJSON, listType, listId, autoplay, loop, shuffle, width, height, x, y, z, ry) );
 		}
 
-		camera = new THREE.PerspectiveCamera(60, 1920 / 1080, .1, 10000);
+		camera = new THREE.PerspectiveCamera(60, 960 / 600, .1, 10000);
 		cameraPositionVector = new THREE.Vector3();
 		cameraRotationQuaternion = new THREE.Quaternion();
 		cameraRotationEuler = new THREE.Euler();
@@ -223,7 +224,7 @@
 				renderer.setSize(window.innerWidth, window.innerHeight);
 			}
 			else {
-				renderer.setSize(1920, 1080);
+				renderer.setSize(960, 600);
 			}
 			cssContainer.appendChild(renderer.domElement);
  		}
@@ -234,7 +235,6 @@
 
 			if (unityGameInstance) {
 				unityGameInstance.SendMessage('Player', 'ProcessInput');
-				console.log("Input Processing Started");
 			}
 
 			camera.position.set(cameraPositionVector.x * unityToThreeScale, 
@@ -255,7 +255,8 @@
 			if (platform.product != "iPhone" && platform.product != "iPad") {
 				youtubePlayers.forEach((player) => {
 					if (player.setVolume) {
-						player.setVolume(100 - (camera.position.distanceTo(player.getIframe().threeObject.position) / 10));
+						player.setVolume(100);
+						console.error(player.getVolume());
 					}				
 				});
 			}
@@ -281,7 +282,7 @@
     <div id="unity-container" class="unity-desktop">
 		<div id="fullScreenContainer">
 			<div id="cssContainer"></div>  	
-			<canvas id="unity-canvas" width=1920 height=1080 tabindex="-1"></canvas>
+			<canvas id="unity-canvas" width=960 height=600 tabindex="-1"></canvas>
 		</div>
 
 
@@ -334,14 +335,14 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/Youtube WebGL.loader.js";
+      var loaderUrl = buildUrl + "/fdgsd.loader.js";
       var config = {
-        dataUrl: buildUrl + "/Youtube WebGL.data",
-        frameworkUrl: buildUrl + "/Youtube WebGL.framework.js",
-        codeUrl: buildUrl + "/Youtube WebGL.wasm",
+        dataUrl: buildUrl + "/fdgsd.data",
+        frameworkUrl: buildUrl + "/fdgsd.framework.js",
+        codeUrl: buildUrl + "/fdgsd.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
-        productName: "unity_youtube_player",
+        productName: "webgl test",
         productVersion: "0.1",
         showBanner: unityShowBanner,
       };
@@ -371,8 +372,8 @@
       } else {
         // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
 
-        canvas.style.width = "1920px";
-        canvas.style.height = "1080px";
+        canvas.style.width = "960px";
+        canvas.style.height = "600px";
       }
 
       loadingBar.style.display = "block";
