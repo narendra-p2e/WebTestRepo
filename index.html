@@ -109,7 +109,6 @@
 		}
 
 		function setTitle(iframeId, title) {
-			console.error("Title " + title);
 			//unityGameInstance.SendMessage("YoutubeManager", "SetTitle", JSON.stringify([iframeId, title]));
 		}
 
@@ -207,7 +206,7 @@
 			object.position.set(x * unityToThreeScale, y * unityToThreeScale, -z * unityToThreeScale);
 			object.rotation.y = ry;
 			iframe.threeObject = object;
-			
+			console.error(iframe);
 			unityGameInstance.SendMessage('YoutubeManager', 'IframeCreated');
 			return object;
 		}
