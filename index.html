@@ -198,6 +198,7 @@
 			iframe.src += "&rel=0&controls=0&enablejsapi=1&loop=" + loop;
 			iframe.setAttribute("allow", "autoplay"); // necessary for videos to play unmuted in chrome
 			iframe.autoplay = autoplay;
+			console.error(autoplay);
 			iframe.shuffle = shuffle;
 
 			youtubeIframes.push(iframe);
