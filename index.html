@@ -3,7 +3,7 @@
 	<head>
     	<meta charset="utf-8">
     	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    	<title>Unity WebGL Player | webgl test</title>
+    	<title>Unity WebGL Player | AuditoriumWebGLYT</title>
     	<link rel="shortcut icon" href="TemplateData/favicon.ico">
     	<link rel="stylesheet" href="TemplateData/style.css">
 		<style>
@@ -256,7 +256,6 @@
 				youtubePlayers.forEach((player) => {
 					if (player.setVolume) {
 						player.setVolume(100);
-						console.error(player.getVolume());
 					}				
 				});
 			}
@@ -335,14 +334,14 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/fdgsd.loader.js";
+      var loaderUrl = buildUrl + "/AuditoriumWebGLYT.loader.js";
       var config = {
-        dataUrl: buildUrl + "/fdgsd.data",
-        frameworkUrl: buildUrl + "/fdgsd.framework.js",
-        codeUrl: buildUrl + "/fdgsd.wasm",
+        dataUrl: buildUrl + "/AuditoriumWebGLYT.data",
+        frameworkUrl: buildUrl + "/AuditoriumWebGLYT.framework.js",
+        codeUrl: buildUrl + "/AuditoriumWebGLYT.wasm",
         streamingAssetsUrl: "StreamingAssets",
-        companyName: "DefaultCompany",
-        productName: "webgl test",
+        companyName: "Maayaverse",
+        productName: "AuditoriumWebGLYT",
         productVersion: "0.1",
         showBanner: unityShowBanner,
       };
